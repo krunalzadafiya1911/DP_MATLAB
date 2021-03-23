@@ -2,6 +2,8 @@ function [X, C, I, out] = hev(inp,~)
 %function [X C I out] = hev(inp,par)
 %HEV Computes the resulting state-of-charge based on current state-
 %   of-charge, inputs and drive cycle demand.
+%	Simulation time is major factor. This fuction concentrated to reduce the simulation time. 
+%	this Trial has reduced the time upto 1 to 2 minuites.
 %   
 %   [X C I out] = HEV(INP,PAR)
 %
