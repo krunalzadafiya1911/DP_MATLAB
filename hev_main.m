@@ -4,14 +4,14 @@ load NEDC_input
 % create grid
 clear grd
 grd.Nx{1}    = 1001; 
-grd.Xn{1}.hi = 0.8; 
+grd.Xn{1}.hi = 0.9; 
 grd.Xn{1}.lo = 0.2;
 
 grd.Nu{1}    = 1001;
 grd.Un{1}.hi = 1;
 grd.Un{1}.lo = -1;	% Att: Lower bound may vary with engine size.
 
-%engine start-stop function 
+%engine start-stop function     %increase the computation effort    %even it can be done with conditions defining the engine-on or -off, which was done in my last code
 grd.Nu{2} = 2;
 grd.Un{2}.hi = 1;
 grd.Un{2}.lo = 0;
@@ -34,7 +34,7 @@ prb.N  = 1220*1/prb.Ts + 1;
 
 % set options
 options = dpm();
-options.MyInf = 1e1;
+options.MyInf = 1e3;                        %simulated with different Inf value   %result do not change   %Affect if the model is not correct or cost value upbound this Inf value
 options.BoundaryMethod = 'Line'; % also possible: 'none' or 'LevelSet';
 if strcmp(options.BoundaryMethod,'Line') 
     %these options are only needed if 'Line' is used
